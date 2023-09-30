@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1 class="text-center"> Welcome to Calculate me!</h1>
+     <div class="container">
+      <div class="row">
+         <input class="input" type="text"/>
+      </div>
+    
+        <div class="row">
+           <button class="button">C</button>
+           <button class="button">%</button>
+           <button class="button">(</button>
+           <button class="button">)</button>
+        </div> 
+        <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button">*</button>
+         </div> 
+         <div class="row">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">3</button>
+            <button class="button">-</button>
+         </div> 
+         <div class="row">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button">/</button>
+         </div>  
+         <div class="row">
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button">=</button>
+            <button class="button">+</button>
+         </div> 
+     </div>
+     <script>
+      let inputString = ""; // Use a more descriptive variable name
+let buttons = document.querySelectorAll(".button");
+Array.from(buttons).forEach((button) => {
+  button.addEventListener("click", (e) => {
+    const buttonText = e.target.innerHTML;
+    if (buttonText === "=") {
+      try {
+        inputString = eval(inputString); // Evaluate the expression
+        document.querySelector('.input').value = inputString;
+      } catch (error) {
+        inputString = "Error";
+        document.querySelector('.input').value = inputString;
+      }
+    } else if (buttonText === "C") {
+      inputString = "";
+      document.querySelector('.input').value = inputString;
+    } else {
+      inputString += buttonText;
+      document.querySelector('.input').value = inputString;
+    }
+  });
+});
+
+
+     </script>
+     
+     
+</body>
+</html>
